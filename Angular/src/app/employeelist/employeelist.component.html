@@ -1,0 +1,37 @@
+<form class="d-flex" (ngSubmit)="Sortedemp()">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchstr" [(ngModel)]="searchstr">
+  <button class="btn btn-outline-success" type="submit" >Search</button>
+</form>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Employee List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>EmpName</th>
+            <th>EmpSalary</th>
+            <th>EmpAge</th>
+            <th>DepartmentName</th>
+            <th>DepartmentType</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of data">
+            <td>{{employee.empName}}</td>
+            <td>{{employee.empSalary}}</td>
+            <td>{{employee.empAge}}</td>
+            
+                <td>{{employee.department.departmentName}}</td>
+                <td>{{employee.department.departmentType}}</td>
+            
+            <td><button class="btn btn-danger" (click)="employeedelete(employee.empId)">Delete</button>
+                <button (click)="employeeDetails(employee.empId)" class="btn btn-info" style="margin-left: 10px">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
